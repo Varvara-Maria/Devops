@@ -17,4 +17,4 @@ jobs:
           to: "-1001926039157"
           token: "6335044437:AAFa-moQwu1YN_5sIzD2m_wmCqQz2NxquO8"
           format: markdown
-          message: **New Pull Request**
+          message: "New Pull Request"
