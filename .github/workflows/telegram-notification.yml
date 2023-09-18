@@ -1,30 +1,24 @@
-name: Telegram Notification on PR Creation
+name: Telegram notification
 
 on:
   pull_request:
-    types:
-      - opened
 
 jobs:
-  telegram-notification:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Get PR details
+        id: pr_details
+        run: 
+
+      - name: Telegram Notify
+        uses: appleboy/telegram-action@master
         with:
-          python-version: 3.x
-
-      - name: Install Dependencies
-        run: pip install python-telegram-bot requests
-
-      - name: Send Telegram Message
-        env:
-          TELEGRAM_TOKEN: "6335044437:AAFa-moQwu1YN_5sIzD2m_wmCqQz2NxquO8"
-          TELEGRAM_CHAT_ID: "-1001926039157"  # Замініть на ваше користувачеське ім'я каналу
-        run: |
-          MESSAGE="New PR created: ${{ github.event.pull_request.html_url }}"
-          curl -s -X POST "https://api.telegram.org/bot6335044437:AAFa-moQwu1YN_5sIzD2m_wmCqQz2NxquO8/sendMessage" -d "chat_id=$TELEGRAM_CHAT_ID&text=$MESSAGE"
+          to: "-1001926039157"
+          token: "6335044437:AAFa-moQwu1YN_5sIzD2m_wmCqQz2NxquO8"
+          format: markdown
+          message: "New Pull Request"
