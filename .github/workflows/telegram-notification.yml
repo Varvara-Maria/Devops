@@ -23,7 +23,7 @@ jobs:
 
       - name: Send Telegram Message
         env:
-          TELEGRAM_TOKEN: ${{ secrets.6335044437:AAFa-moQwu1YN_5sIzD2m_wmCqQz2NxquO8   }}
+          TELEGRAM_TOKEN: "6335044437:AAFa-moQwu1YN_5sIzD2m_wmCqQz2NxquO8"
           TELEGRAM_CHAT_ID: "-1001926039157"  # Замініть на ваше користувачеське ім'я каналу
         run: |
           MESSAGE="New PR created: ${{ github.event.pull_request.html_url }}"
