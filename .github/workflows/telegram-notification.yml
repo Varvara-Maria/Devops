@@ -11,14 +11,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Get PR details
-        id: pr_details
-        run: 
-
       - name: Telegram Notify
         uses: appleboy/telegram-action@master
         with:
           to: "-1001926039157"
           token: "6335044437:AAFa-moQwu1YN_5sIzD2m_wmCqQz2NxquO8"
           format: markdown
-          message: "New Pull Request"
+          message: **New Pull Request**
